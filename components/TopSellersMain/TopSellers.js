@@ -3,12 +3,12 @@ import React from 'react';
 
 
 function TopSellers({ props }) {
-
+    // console.log(props.items)
     return (
         <>
             <h4 className='top-sellers-title title'>Топ продажів</h4>
             <div className="top-sellers-row">
-                {!!props.length && props.map(props => {
+                {!!props.items.length && props.items.map(props => {
                     return (
                         <GoodCardSmall key={props.id} props={props} />
                     );

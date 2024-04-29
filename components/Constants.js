@@ -1,5 +1,4 @@
-export const URLADRESS = "https://markethub-mfbw.onrender.com/markethub/";
-export const MaketHubURL = "https://market-hub-backend-dat4.vercel.app/";
+export const URLADRESS = "https://vps63222.hyperhost.name/markethub";
 
 export const Categories = [
     {

@@ -47,6 +47,7 @@ function Home({ categories, topSellers, promotionGoods }) {
                     <h2>Обирай найкраще, не виходячи з дому</h2>
                 </div>
 
+
                 <div className="main-content">
                     <Categories categories={categories} />
                     <TopSellers props={topSellers} />
@@ -60,14 +61,17 @@ function Home({ categories, topSellers, promotionGoods }) {
 
 export async function getServerSideProps() {
 
-    const resCategories = await fetch("https://market-hub-backend-dat4.vercel.app/categories");
-    const categories = await resCategories.json();
+    const resCategories = await fetch(URLADRESS + "/categories");
+    const temp = await resCategories.json();
+    const categories = temp.sort((a, b) => a.id - b.id);
 
-    const resTopSellers = await fetch("https://market-hub-backend-dat4.vercel.app/goods/top-sellers");
+    const resTopSellers = await fetch(URLADRESS + "/goods/top-seller");
     const topSellers = await resTopSellers.json();
 
-    const resPromotionGoods = await fetch("https://market-hub-backend-dat4.vercel.app/sales");
+    const resPromotionGoods = await fetch(URLADRESS + "/goods/shares");
     const promotionGoods = await resPromotionGoods.json();
+
+
     return {
         props: {
             categories,

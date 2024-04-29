@@ -11,12 +11,12 @@ import { useRouter } from 'next/router';
 
 
 function GoodCardSmall({ props, isFavorite }) {
-    const { id, price, available, title, images, thumbnail, category_details, sub_category_detail } = props;
+    const { id, price, available, name, photo_preview, category_details, sub_category_detail } = props;
     const [isInBaslet, setIsInBasket] = useState(false);
     const [isInFavorite, setIsInFavorite] = useState(false);
     const [className, setClassname] = useState(false)
     const dispatch = useDispatch();
-    // console.log(props)
+    // console.log(props.photo_preview)
 
 
     const router = useRouter();
@@ -76,7 +76,7 @@ function GoodCardSmall({ props, isFavorite }) {
                 id: id,
                 title: title,
                 price: price,
-                thumbnail: (thumbnail ? thumbnail : images[0]),
+                photo_preview: photo_preview,
                 available: available
             }
         ))
@@ -123,7 +123,7 @@ function GoodCardSmall({ props, isFavorite }) {
                 <div className="container-for-imafe-top-sellers">
                     <Image
                         alt="image of good"
-                        src={thumbnail ? thumbnail : "defaultPhoto.png"}
+                        src={photo_preview ? "https://" + photo_preview : "defaultPhoto.png"}
                         quality={30}
                         fill
                         sizes="(max-width: 100%)"
@@ -134,7 +134,7 @@ function GoodCardSmall({ props, isFavorite }) {
                     />
                 </div>
             </div>
-            <p className='top-sellers-item-title'>{title.split(' ').length > 5 ? (title[5][0] == '(' || title[5][0] == '/' ? title.split(' ').slice(0, 4).join(' ') : title.split(' ').slice(0, 5).join(' ')) : title}</p>
+            <p className='top-sellers-item-title'>{name}</p>
             <div className='top-sellers-prise-and-availability'>
                 <p className='top-sellers-price'>{formattedPrice(price)} грн</p>
                 <p className={`top-sellers-availability ${available == true ? '' : 'noavailability'}`}>
