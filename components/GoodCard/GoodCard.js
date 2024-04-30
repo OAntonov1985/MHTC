@@ -8,12 +8,6 @@ import GoodCardDescription from '../GoodCardDescription/GoodCardDescription';
 
 function GoodCard({ props, breadCrumpData }) {
     const { category, subcategory, title } = breadCrumpData || {};
-    // console.log(category)
-    // const router = useRouter();
-    // const categoryName = router.query.category;
-    // const subCategoryName = router;
-    // console.log(categoryName)
-    // console.log(subCategoryName)
 
     return (
         <div className="good-card">

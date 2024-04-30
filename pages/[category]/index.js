@@ -41,23 +41,23 @@ export async function getServerSideProps(context) {
 
     let id;
     if (context.query.category === "Комп’ютерна техніка") id = 100;
-    else if (context.query.category === "Мобільні телефони") id = 200;
-    else if (context.query.category === "Побутова техніка") id = 300;
-    else if (context.query.category === "Ігрові приставки") id = 400;
-    else if (context.query.category === "Аудіотехніка") id = 500;
+    else if (context.query.category === "Мобільні телефони") id = 175;
+    else if (context.query.category === "Побутова техніка") id = 250;
+    else if (context.query.category === "Ігрові приставки") id = 350;
+    else if (context.query.category === "Аудіотехніка") id = 400;
 
 
-    const res = await fetch(`https://market-hub-backend-dat4.vercel.app/categorie/${id}`);
+    const res = await fetch(URLADRESS + `/categories/${id}/sub-categories`);
     const subCategories = await res.json();
 
-    const resGoods = await fetch(`https://market-hub-backend-dat4.vercel.app/goods/categories/${id}/0/12`);
+    const resGoods = await fetch(URLADRESS + `/goods/categories/${id}?size=12`);
     const goods = await resGoods.json();
 
-    // console.log(id)
+    // console.log(goods)
     return {
         props: {
             subCategories,
-            goods: goods.data,
+            goods: goods,
             id: id,
             total: goods.total
         }

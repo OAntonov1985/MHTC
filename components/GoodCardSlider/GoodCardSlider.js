@@ -3,24 +3,23 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 function GoodCardSlider({ props }) {
-    const { id, title, price, description, category, image, thumbnail, images } = props;
+    const { photo_preview, photo } = props;
 
-    // console.log(images)
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [biggerPfoto, setBiggerPfoto] = useState(false)
+    const [biggerPfoto, setBiggerPfoto] = useState(false);
 
     const nextSlide = (event) => {
         event.stopPropagation();
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % photo.length);
     };
 
     const prevSlide = (event) => {
         event.stopPropagation();
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + photo.length) % photo.length);
     };
 
-    const prevIndex = (currentIndex - 1 + images.length) % images.length;
-    const nextIndex = (currentIndex + 1) % images.length;
+    const prevIndex = (currentIndex - 1 + photo.length) % photo.length;
+    const nextIndex = (currentIndex + 1) % photo.length;
 
 
 
@@ -40,8 +39,7 @@ function GoodCardSlider({ props }) {
                             <div className="medium-pfoto-container">
                                 <Image
                                     alt="image of good"
-                                    // src="/defaultPhoto.png"
-                                    src={images[index]}
+                                    src={"https://" + photo[index].photoUrl}
                                     quality={100}
                                     fill
                                     sizes="(max-width: 100%)"
@@ -94,15 +92,15 @@ function GoodCardSlider({ props }) {
                 <div className='good-card-big-pfoto-container'>
                     <Image
                         alt="image of good"
-                        // src={image ? image : thumbnail}
-                        // src={images[images.length - currentIndex - 1]}
-                        src={images[currentIndex]}
+                        src={"https://" + photo[currentIndex].photoUrl}
                         quality={100}
                         fill
-                        sizes="(max-width: 100%)"
+                        sizes="(max-width: 80%)"
                         style={{
                             objectFit: 'contain',
-                            width: '100%'
+                            width: '100%',
+                            maxWidth: "80%",
+                            margin: "auto"
                         }}
                     />
                 </div>

@@ -84,7 +84,7 @@ function GoodCardSmall({ props, isFavorite }) {
 
     return (
         <Link key={id}
-            href="/[category]/[subcategory]/[id]" as={`/${categoryName ? categoryName : (category_details ? category_details.name : null)}/${subCategoryName ? subCategoryName : sub_category_detail?.name}/${id}`}
+            href={`/markethub/goods/${id}`}
             className={className ? "top-sellers-item" : "top-sellers-item top-sellers-in-favorite"} >
             <div className="image-container-top-sellers">
                 <div className={`container-for-icon-favorite ${isFavorite ? 'icon-in-favorite' : ''}`} id={id}>

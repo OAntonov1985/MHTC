@@ -2,8 +2,8 @@
 import Head from "next/head";
 import GoodCard from '@/components/GoodCard/GoodCard';
 import React from 'react';
-import BreadCrumps from '@/components/Breadcrumps/Breadcrumps';
-import { MaketHubURL } from "../../../../components/Constants"
+// import BreadCrumps from '@/components/Breadcrumps/Breadcrumps';
+import { URLADRESS } from "../../../../components/Constants"
 
 
 function ProductPage({ good, breadCrumpData }) {
@@ -25,14 +25,15 @@ function ProductPage({ good, breadCrumpData }) {
 
 export async function getServerSideProps(context) {
     let id = context.query.id
-    // console.log(id)
-    const resGoods = await fetch(MaketHubURL + `goods/${id}`);
+
+    const resGoods = await fetch(URLADRESS + `/goods/${id}`);
     const good = await resGoods.json();
+    // console.log(good)
 
     const breadCrumpData = {
         category: good.category_details.name,
-        subcategory: good.sub_category_detail.name,
-        title: good.title,
+        subcategory: good.sub_category_details.name,
+        title: good.name,
         id: good.id,
         available: good.available
     };

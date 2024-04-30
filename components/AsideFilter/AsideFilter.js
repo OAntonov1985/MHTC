@@ -17,9 +17,9 @@ function AsideFilter({ id, objToAsideFilter }) {
     };
 
 
-    useEffect(() => {
-        GetdBrandsFromDB();
-    }, []);
+    // useEffect(() => {
+    //     GetdBrandsFromDB();
+    // }, []);
 
 
     function ChekcInputValue(event, inputType) {

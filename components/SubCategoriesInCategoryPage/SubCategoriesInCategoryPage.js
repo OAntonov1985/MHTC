@@ -5,6 +5,7 @@ import React from 'react';
 
 function SubcategoriesInCatPage({ subCategories }) {
     // console.log(subCategories)
+    const sortedSubCategories = subCategories.sort((a, b) => a.id - b.id)
     return (
         <div className='second-row second-row-modify'>
             {!!subCategories.length && subCategories.map(subCategories => {
@@ -14,8 +15,6 @@ function SubcategoriesInCatPage({ subCategories }) {
             })}
         </div>
     )
-
-
 };
 
 export default React.memo(SubcategoriesInCatPage);

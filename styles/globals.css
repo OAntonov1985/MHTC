@@ -1177,6 +1177,7 @@ h2 {
   color: #FBFBFB;
   margin-right: 1.2rem;
   transition: 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .good-card-buy-good:hover, .good-card-add-to-favorite:hover {
@@ -1192,6 +1193,7 @@ h2 {
   color: #116ACC;
   border: 0.1rem solid #116ACC;
   transition: 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .good-card-logo-container {

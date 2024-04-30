@@ -20,7 +20,7 @@ function GoodCardDescription({ props, breadCrumpData }) {
 
 
 
-    const formattedDescription = description.map(sentence => `<p class="description_par">${sentence}</p>`).join('\n');
+    // const formattedDescription = description.map(sentence => `<p class="description_par">${sentence}</p>`).join('\n');
 
     const addGoodToBasket = () => {
         if (available) {
@@ -59,7 +59,7 @@ function GoodCardDescription({ props, breadCrumpData }) {
             </div>
             <div className="good-card-description">
                 <p className='description-title'>Опис товару</p>
-                <div dangerouslySetInnerHTML={{ __html: formattedDescription }} />
+                <div dangerouslySetInnerHTML={{ __html: description }} />
             </div>
             <p className='good-card-price'>{formattedPrice(price)} грн</p>
             <div className='godd-card-added'>

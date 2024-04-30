@@ -11,8 +11,8 @@ import GetSearchResultInPage from '@/pages/api/GetSearchResultInPage';
 import { setSearchTotalResult } from '@/slices/userSlice';
 
 
-function GoodsList({ props, id, total, setGoods }) {
-    const [listGoods, setListGoods] = useState(props);  /// Отримує список товарів з бекенду ///
+function GoodsList({ props, id, total }) {
+    const [listGoods, setListGoods] = useState(props.items);  /// Отримує список товарів з бекенду ///
     const [selectedFilterOption, setSelectedFilterOption] = useState("Новинки"); /// Встановлює опцію сортування (Новинки Від Від) ///
     const [activePage, setActivePage] = useState(1); /// Встановлює активну сторінку перегляду знизу ///
     const [totalItems, setTotalItems] = useState(); /// Отримує загальну кількість одиниць товарів ///

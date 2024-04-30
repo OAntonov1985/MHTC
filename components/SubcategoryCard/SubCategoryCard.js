@@ -4,14 +4,14 @@ import React from 'react';
 
 
 function SubCategotyCard({ subCategories }) {
-    const category = subCategories.parent_category_name;
-    const subcategory = subCategories.sub_category_name;
+    const category = subCategories.parent;
+    const subcategory = subCategories.name;
     return (
         <Link key={subCategories.id} className="main-categories-row-two" href="/[category]/[subcategory]" as={`/${category}/${subcategory}`}>
             <div className="image-container">
                 <Image
                     alt="image of computer"
-                    src={subCategories.thumbnail}
+                    src={subCategories.photo_preview}
                     sizes="(max-width: 100%)"
                     quality={100}
                     fill
@@ -22,7 +22,7 @@ function SubCategotyCard({ subCategories }) {
                     }}
                 />
             </div>
-            <p className='main-item-title'>{subCategories.sub_category_name}</p>
+            <p className='main-item-title'>{subCategories.name}</p>
         </Link>
     )
 };
