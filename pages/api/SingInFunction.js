@@ -12,7 +12,7 @@ export default async function singInFunction(body) {
     currentDate.setTime(currentDate.getTime() + (24 * 60 * 60 * 1000));
     try {
         // const response = await fetch(URLADRESS + 'login', {
-        const response = await fetch('https://vps63222.hyperhost.name/markethub/login', {
+        const response = await fetch(URLADRESS + '/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

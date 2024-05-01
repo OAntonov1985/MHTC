@@ -10,7 +10,7 @@ import { setUserFavorite, setUserBasket } from '@/slices/userSlice';
 
 function GoodCardDescription({ props, breadCrumpData }) {
 
-    const { title, description, price, thumbnail, available } = props;
+    const { name, description, price, photo_preview, available } = props;
     const { id } = breadCrumpData;
     const dispatch = useDispatch();
     const { userFavorite } = useSelector((state) => state.user);
@@ -19,17 +19,14 @@ function GoodCardDescription({ props, breadCrumpData }) {
     });
 
 
-
-    // const formattedDescription = description.map(sentence => `<p class="description_par">${sentence}</p>`).join('\n');
-
     const addGoodToBasket = () => {
         if (available) {
             dispatch(setUserBasket(
                 {
                     id: id,
-                    title: title,
+                    title: name,
                     price: price,
-                    thumbnail: thumbnail,
+                    thumbnail: photo_preview,
                     number: 1,
                     totalPrice: price
                 }
@@ -41,9 +38,9 @@ function GoodCardDescription({ props, breadCrumpData }) {
         dispatch(setUserFavorite(
             {
                 id: id,
-                title: title,
+                title: name,
                 price: price,
-                thumbnail: thumbnail,
+                thumbnail: photo_preview,
                 number: 1,
                 available: available
             }
@@ -52,7 +49,7 @@ function GoodCardDescription({ props, breadCrumpData }) {
 
     return (
         <div className="good-card-right-column">
-            <h4 className='good-card-title'>{title}</h4>
+            <h4 className='good-card-title'>{name}</h4>
             <div className='good-card-tech-info'>
                 <p className="good-card-number">Код товару: {id}</p>
                 <p className={`top-sellers-availability ${available ? "" : "sail-prise"}`}>{available ? "Є в  наявності" : "Немає в наявності"}</p>

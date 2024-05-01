@@ -10,9 +10,9 @@ import Link from 'next/link';
 
 function BaskerGoodRow({ props }) {
 
-    const { id, title, thumbnail, number, price, totalPrice } = props;
+    const { id, title, photo_preview, number, price, totalPrice, name, thumbnail } = props;
     const dispatch = useDispatch();
-    // console.log(id)
+    // console.log(photo_preview)
 
 
     const reduseGoodQuantity = (e) => {
@@ -27,7 +27,7 @@ function BaskerGoodRow({ props }) {
         dispatch(setUserBasket(
             {
                 id: id,
-                title: title,
+                title: name,
                 price: price,
                 thumbnail: thumbnail,
                 number: 1,
@@ -45,7 +45,7 @@ function BaskerGoodRow({ props }) {
                     <div className='good-item-image-container'>
                         <Image
                             alt="image of good"
-                            src={thumbnail}
+                            src={"https://" + thumbnail}
                             quality={100}
                             fill
                             sizes="(max-width: 100%)"

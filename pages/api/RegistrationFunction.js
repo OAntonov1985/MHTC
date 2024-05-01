@@ -9,7 +9,7 @@ export default async function RegistrationFunction(body) {
     const currentDate = new Date();
     currentDate.setTime(currentDate.getTime() + (24 * 60 * 60 * 1000));
     try {
-        const response = await fetch('https://vps63222.hyperhost.name/markethub/authorization', {
+        const response = await fetch(URLADRESS + '/authorization', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

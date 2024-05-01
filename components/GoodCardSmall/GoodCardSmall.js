@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 
 
 function GoodCardSmall({ props, isFavorite }) {
-    const { id, price, available, name, photo_preview, category_details, sub_category_detail } = props;
+    const { id, price, available, name, photo_preview, category_details, sub_category_detail, photo } = props;
     const [isInBaslet, setIsInBasket] = useState(false);
     const [isInFavorite, setIsInFavorite] = useState(false);
     const [className, setClassname] = useState(false)
@@ -59,9 +59,9 @@ function GoodCardSmall({ props, isFavorite }) {
             dispatch(setUserBasket(
                 {
                     id: id,
-                    title: title,
+                    title: name,
                     price: price,
-                    thumbnail: (thumbnail ? thumbnail : images[0]),
+                    thumbnail: (photo_preview ? photo_preview : photo[0]),
                     number: 1,
                     totalPrice: price
                 }
@@ -74,7 +74,7 @@ function GoodCardSmall({ props, isFavorite }) {
         dispatch(setUserFavorite(
             {
                 id: id,
-                title: title,
+                title: name,
                 price: price,
                 photo_preview: photo_preview,
                 available: available

@@ -2,6 +2,7 @@ import { URLADRESS } from '@/components/Constants';
 
 export default async function SendEmailForPasswordRecovery(body) {
     let Errorflag
+    console.log(body)
 
     try {
         const response = await fetch(URLADRESS + 'users/reset_password', {
