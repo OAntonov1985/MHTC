@@ -1432,12 +1432,18 @@ h2 {
 }
 
 .subcategory-page {
-  max-width: 192rem;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 192rem;
+  min-height: 100vh;
 }
 
 .subcategory-main-content {
+  display: flex;
+  flex-direction: column;
   margin: 4.1rem 9rem;
+  flex: 1 1 auto;
 }
 
 .page-selector {

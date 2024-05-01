@@ -11,7 +11,7 @@ import EmptyCategorie from '@/components/EmptyCategotie/EmptyCategorie';
 
 
 function CategoryPage({ subCategories, goods, id, total }) {
-
+    console.log(goods.items.length)
     return (
         <>
             <Head>
@@ -23,7 +23,7 @@ function CategoryPage({ subCategories, goods, id, total }) {
                 <Header />
                 <div className="category-main-content">
                     <BreadCrumps id={id} />
-                    {goods.length === 0 ? <EmptyCategorie /> : (
+                    {goods.items.length === 0 ? <EmptyCategorie /> : (
                         <>
                             <div className="subcategories-row">
                                 <SubcategoriesInCatPage subCategories={subCategories} />
@@ -43,7 +43,7 @@ export async function getServerSideProps(context) {
     if (context.query.category === "Комп’ютерна техніка") id = 100;
     else if (context.query.category === "Мобільні телефони") id = 175;
     else if (context.query.category === "Побутова техніка") id = 250;
-    else if (context.query.category === "Ігрові приставки") id = 350;
+    else if (context.query.category === "Ігрові приставки") id = 325;
     else if (context.query.category === "Аудіотехніка") id = 400;
 
 
